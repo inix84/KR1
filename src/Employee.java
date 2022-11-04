@@ -1,44 +1,72 @@
 //package course;
 
-public class Employee {
-    private int salary;
-    private final String fullName;
+public class Employee { // класс Сотрудник
+    private final int id; // номер сотрудника?
+    private int department; //отдел (от 1 до 5), может меняться
+    private String surname;; // Фамилия, может меняться
+    private final String name;; // Имя
+    private final String patronymic;; // Отчество
 
-    private final int id;
+    private int salary; // зарплата, может меняться
+    private static int counter = 0; // счетчик обращений к конструктору, привязан к классу (статичный)
 
-    private static int counter = 0;
 
-
-    public Employee(String fullName, int salary) {
-        this.fullName = fullName;
+    public Employee(int id, int department, String surname,String name,String patronymic,int salary) { // метод Сотрудник, определяются поля для класса
+        this.id = id;
+        this.department = department;
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
         this.salary = salary;
-        this.id = counter++;
+        this.id = counter++; // увеличивается при каждом обращении (создании сотрудников)
 
     }
 
-    public int getSalary() {
-        return salary;
+    public int getDepartment() { // геттер Отдела, считывать
+        return this.department;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
+    public void setDepartment(int department) { // сеттер отдела, менять отдел
+        this.department = department;
     }
 
-    public String getFullName() {
-        return this.fullName;
+    public String getSurname() { // геттер Фамилии, считывать
+        return this.surname;
     }
 
-    public int getId() {
+    public void setSurname(String surname) { // сеттер Фамилии, менять
+        this.surname = surname;
+    }
+
+    public String getName() { // геттер Имени, читать
+        return this.name;
+    }
+
+    public String getPatronymic() { // геттер Отчества, читать
+        return this.patronymic;
+    }
+
+    public int getId() { // геттер номера сотрудника, считывать
         return id;
     }
 
+    public int getSalary() { // геттер зарплаты, считывать
+        return this.salary;
+    }
+
+    public void setSalary(int salary) { // сеттер зарплаты, менять
+        this.salary = salary;
+    }
 
     @Override
     public String toString() {
-        return "Employee {" +
-                "salary = " + salary +
-                ", fullName ' " + fullName + '\'' +
-                ", id" + id +
+        return "Employee{" +
+                "id=" + id +
+                ", department=" + department +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", salary=" + salary +
                 '}';
     }
 }

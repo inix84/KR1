@@ -10,11 +10,12 @@ public class Main {
         employees[4] = new Employee("5. Иванов Иван Иванович",500);
         System.out.println("Сумма всех зарплат:" + calculateSumSalary() );
         Employee employeeWithMaxSalary = getEmployeeWithMaxSalary();
-        if (employeeWithMaxSalary == null) {
-            System.out.println("Нет сотрудника с максимальной зарплатой: ");
-        } else {
+
+        //if (employeeWithMaxSalary == null) {
+           // System.out.println("Нет сотрудника с максимальной зарплатой: ");
+        //} else {
             System.out.println("Сотрудник с максимальной зарплатой: " + getEmployeeWithMaxSalary());
-        }
+       // }
     }
 
     public static int calculateSumSalary() {
