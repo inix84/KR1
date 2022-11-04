@@ -14,24 +14,25 @@ public class Main {
         employees[8] = new Employee(5,"Шелдон","Грегори","/нет отчества/",100_000);
         employees[9] = new Employee(5,"Шелдон","Амалия","/нет отчества/",105_000);
 
-
-        for (int i=0;i<10;i++){
-        System.out.println(" " + employees[i]);
+        int num = employees.length;
+        for (int i=0;i<num;i++){
+        System.out.println(" " + employees[i]); // вывод данных всех сотрудников
         }
-
-
+        System.out.println();
         System.out.println("Сумма затрат на зарплаты в месяц: " + calculateSumSalary() + " рублей");
         System.out.println("Средняя зарплата сотрудников: " + calculateAverageSalary() + " рублей");
-        Employee employeeWithMaxSalary = getEmployeeWithMaxSalary();
 
-        //if (employeeWithMaxSalary == null) {
-           // System.out.println("Нет сотрудника с максимальной зарплатой: ");
-        //} else {
+        System.out.println();
         System.out.println("Сотрудник с минимальной зарплатой: " + getEmployeeWithMinSalary());
+        System.out.println();
         System.out.println("Сотрудник с максимальной зарплатой: " + getEmployeeWithMaxSalary());
+        System.out.println();
+        System.out.println("Список сотрудников:");
 
-       // }
-    }
+        for (int i=0;i<num;i++) {
+            System.out.println(i+1 + ". " + employees[i].getSurname() + " " + employees[i].getName() + " " + employees[i].getPatronymic());
+        }
+      }
 
     public static int calculateSumSalary() { // метод на сумму зарплат
         int sum = 0;
@@ -65,17 +66,9 @@ public class Main {
         return targetEmployee;
     }
 
-
-
-        public static float calculateAverageSalary() { // метод на подсчет среднего значения зарплат
-        for (Employee search : employees) {
-            if (search !=null && search.getSalary() > max) {
-                max = search.getSalary();
-                targetEmployee = search;
-                }
-        int Number = getCounter();
-        //sum += employee.getSalary();
-        float Average = calculateSumSalary();
+        public static double calculateAverageSalary() { // метод на подсчет среднего значения зарплат
+        double Average = (double) calculateSumSalary()/employees.length;
         return Average;
     }
+
 }
