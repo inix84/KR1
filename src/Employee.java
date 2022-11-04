@@ -1,24 +1,24 @@
 //package course;
 
 public class Employee { // класс Сотрудник
-    private final int id; // номер сотрудника?
+
     private int department; //отдел (от 1 до 5), может меняться
     private String surname;; // Фамилия, может меняться
     private final String name;; // Имя
     private final String patronymic;; // Отчество
-
     private int salary; // зарплата, может меняться
-    private static int counter = 0; // счетчик обращений к конструктору, привязан к классу (статичный)
+    public static int counter = 0; // счетчик обращений к конструктору, привязан к классу (статичный)
+
+    private final int id; // номер сотрудника
 
 
-    public Employee(int id, int department, String surname,String name,String patronymic,int salary) { // метод Сотрудник, определяются поля для класса
-        this.id = id;
+    public Employee(int department, String surname,String name,String patronymic,int salary) { // метод Сотрудник, определяются поля для класса
         this.department = department;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
         this.salary = salary;
-        this.id = counter++; // увеличивается при каждом обращении (создании сотрудников)
+        this.id = ++counter; // увеличивается при каждом обращении (создании сотрудников)
 
     }
 
@@ -46,7 +46,7 @@ public class Employee { // класс Сотрудник
         return this.patronymic;
     }
 
-    public int getId() { // геттер номера сотрудника, считывать
+    private int getId() { // геттер номера сотрудника, считывать
         return id;
     }
 
@@ -58,15 +58,18 @@ public class Employee { // класс Сотрудник
         this.salary = salary;
     }
 
+    public int getCounter() { // для среднего надо возврат числа счетчика текущее
+        return counter;
+    }
     @Override
     public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", department=" + department +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", patronymic='" + patronymic + '\'' +
-                ", salary=" + salary +
+        return "Сорудник - " +
+                "Отдел - " + department +
+                ", Фамилия - " + surname +
+                ", Имя - " + name +
+                ", Отчество - " + patronymic +
+                ", зарплата = " + salary +
+                ", id = " + id +
                 '}';
     }
 }
