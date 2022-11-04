@@ -28,16 +28,6 @@ public class Employee {
         return this.fullName;
     }
 
-    //@Override
-    //public String toString() {
-        //return "Employee {" +
-             //   "salary = " + salary +
-             //   ", fullName ' " + fullName + '\'' +
-             //   '}';
-
-    //}
-
-
     public int getId() {
         return id;
     }
