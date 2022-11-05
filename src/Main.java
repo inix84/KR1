@@ -2,7 +2,6 @@
 
 public class Main {
     private static final Employee[] employees = new Employee[10]; //  данные о 10 сотрудниках
-
     public static void main(String[] args) {
         employees[0] = new Employee(1, "Счастливый", "Случай", "Внезапнович", 1_000_000);
         employees[1] = new Employee(1, "Счастливая", "Радость", "Долгождановна", 50_000);
@@ -14,7 +13,6 @@ public class Main {
         employees[7] = new Employee(4, "Уснувшая", "Шалость", "Случаевна", 60_000);
         employees[8] = new Employee(5, "Шелдон", "Грегори", "/нет отчества/", 100_000);
         employees[9] = new Employee(5, "Шелдон", "Амалия", "/нет отчества/", 105_000);
-
         int num = employees.length;
         for (int i = 0; i < num; i++) {
             System.out.println(" " + employees[i]); // вывод данных всех сотрудников
@@ -22,18 +20,14 @@ public class Main {
         System.out.println();
         System.out.println("Сумма затрат на зарплаты в месяц: " + calculateSumSalary() + " рублей");
         System.out.println("Средняя зарплата сотрудников: " + calculateAverageSalary() + " рублей");
-
         System.out.println();
         System.out.println("Сотрудник с минимальной зарплатой: " + getEmployeeWithMinSalary());
         System.out.println();
         System.out.println("Сотрудник с максимальной зарплатой: " + getEmployeeWithMaxSalary());
         System.out.println();
         System.out.println("Список сотрудников:");
-
         PrintEmployeeFullName(num);
-
     }
-
     public static int calculateSumSalary() { // метод на сумму зарплат
         int sum = 0;
         for (Employee employee : employees) {
@@ -43,40 +37,41 @@ public class Main {
         }
         return sum;
     }
-
-    public static Employee getEmployeeWithMinSalary() { // метод на поиск (search) нищего
+    public static Employee getEmployeeWithMinSalary() { // метод на поиск (emlp) нищего
         int min = Integer.MAX_VALUE; // присваиваем самое большое целое число
-        Employee targetEmployee = null; // инвариант, конкретныйСсотрудник (целевойСотрудник)  присвоить ноль
-        for (Employee search : employees) { //для (типы Сотрудник) переменной search которая перебирает элементы массива указанного сверху
-            if (search != null && search.getSalary() < min) { // если search не равно нулю и ее поле зарплата меньше минимального (нами найденного или установленного начального значения)
-                min = search.getSalary(); // переприсваиваем мин на значение поля зп данного массива search
-                targetEmployee = search; // кокретныйСотрудник присваиваем эту переменную (элемент массива Сотрудники)
+        Employee targetEmployee = null; // инвариант, конкретныйСотрудник (целевойСотрудник)  присвоить ноль
+        for (Employee emlp : employees) { //для (типы Сотрудник) переменной search которая перебирает элементы массива указанного сверху
+            if (emlp != null && emlp.getSalary() < min) { // если search не равно нулю и ее поле зарплата меньше минимального (нами найденного или установленного начального значения)
+                min = emlp.getSalary(); // переприсваиваем мин на значение поля зп данного массива search
+                targetEmployee = emlp; // кокретныйСотрудник присваиваем эту переменную (элемент массива Сотрудники)
             }
         }
         return targetEmployee; // возврат только значение КонтретногоСотрудника (элемента массива типа Сотрудник)
     }
-
-    public static Employee getEmployeeWithMaxSalary() { // метод на поиск (search) мажора
+    public static Employee getEmployeeWithMaxSalary() { // метод на поиск (emlp) мажора
         int max = Integer.MIN_VALUE;
         Employee targetEmployee = null;
-        for (Employee search : employees) {
-            if (search != null && search.getSalary() > max) {
-                max = search.getSalary();
-                targetEmployee = search;
+        for (Employee emlp : employees) {
+            if (emlp != null && emlp.getSalary() > max) {
+                max = emlp.getSalary();
+                targetEmployee = emlp;
             }
         }
         return targetEmployee;
     }
-
     public static double calculateAverageSalary() { // метод на подсчет среднего значения зарплат
-        double Average = (double) calculateSumSalary() / employees.length;
-        return Average;
+      int еxists = 0; // инвариант количества людей
+      for (Employee emlp : employees) { // цикл для проверки заполненности массива и подсчет не нулевых записей (Сотрудник Есть еxists).
+          if (emlp != null) {
+              еxists++;
+          }
+      }
+      double average = (double) calculateSumSalary() / еxists;
+      return average;
     }
-
     public static void PrintEmployeeFullName(int num) { // метод на вывод ФИО сотрудников
         for (int i = 0; i < num; i++) {
             System.out.println(i + 1 + ". " + employees[i].getSurname() + " " + employees[i].getName() + " " + employees[i].getPatronymic());
         }
-
     }
 }
