@@ -26,7 +26,7 @@ public class Main {
         System.out.println("Сотрудник с максимальной зарплатой: " + getEmployeeWithMaxSalary());
         System.out.println();
         System.out.println("Список сотрудников:");
-        PrintEmployeeFullName(num);
+        printEmployeeFullName(num);
     }
     public static int calculateSumSalary() { // метод на сумму зарплат
         int sum = 0;
@@ -69,7 +69,7 @@ public class Main {
       double average = (double) calculateSumSalary() / еxists;
       return average;
     }
-    public static void PrintEmployeeFullName(int num) { // метод на вывод ФИО сотрудников
+    public static void printEmployeeFullName(int num) { // метод на вывод ФИО сотрудников
         for (int i = 0; i < num; i++) {
             System.out.println(i + 1 + ". " + employees[i].getSurname() + " " + employees[i].getName() + " " + employees[i].getPatronymic());
         }

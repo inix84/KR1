@@ -5,7 +5,7 @@ public class Employee { // класс Сотрудник
     private final String name;; // Имя
     private final String patronymic;; // Отчество
     private int salary; // зарплата, может меняться
-    public static int counter = 0; // счетчик обращений к конструктору, привязан к классу (статичный)
+    private static int counter = 0; // счетчик обращений к конструктору, привязан к классу (статичный)
     private final int id; // номер сотрудника
     public Employee(int department, String surname,String name,String patronymic,int salary) { // метод Сотрудник, определяются поля для класса
         this.department = department;
